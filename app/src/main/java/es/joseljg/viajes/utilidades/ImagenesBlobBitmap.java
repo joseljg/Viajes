@@ -14,6 +14,7 @@ public class ImagenesBlobBitmap {
         Bitmap.Config config = Bitmap.Config.ARGB_8888;
         Bitmap bitmap = Bitmap.createBitmap(width, height,config);
         try{
+            // arreglar!!!!!!!!!!!!!!!!!
             int blobLength = (int) b.length();
             byte[] blobAsBytes = b.getBytes(1, blobLength);
             bitmap = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);

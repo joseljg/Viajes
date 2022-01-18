@@ -1,9 +1,13 @@
 package es.joseljg.viajes;
 
+import static es.joseljg.viajes.modelos.ConfiguracionDB.NUMERO_DE_COLUMNAS;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -30,7 +34,12 @@ public class mostrarViaje extends AppCompatActivity {
         }
         //------------------------------------------------------------
         rv_viajes.setAdapter(mAdapter);
-        rv_viajes.setLayoutManager(new LinearLayoutManager(this));
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            rv_viajes.setLayoutManager(new LinearLayoutManager(this));
+        } else {
+            rv_viajes.setLayoutManager(new GridLayoutManager(this, NUMERO_DE_COLUMNAS));
+        }
+       // rv_viajes.setLayoutManager(new LinearLayoutManager(this));
         //------------------------------------------------------------
 
     }
