@@ -30,7 +30,7 @@ public class ViajeDB {
             sentencia.setDouble(3,v.getPrecio());
             if(v.getFoto() != null)
             {
-                byte[] bl1 = ImagenesBlobBitmap.bitmap_to_bytes(v.getFoto());
+                byte[] bl1 = ImagenesBlobBitmap.bitmap_to_bytes_png(v.getFoto());
                 sentencia.setBytes(4,bl1);
             }
             else{
@@ -71,7 +71,9 @@ public class ViajeDB {
                 Bitmap bm_foto;
                 Viaje v ;
                 if(foto != null){
-                    bm_foto = ImagenesBlobBitmap.blob_to_bitmap(foto, ConfiguracionDB.ANCHO_IMAGENES_BITMAP, ConfiguracionDB.ALTO_IMAGENES_BITMAP);
+                  //  bm_foto = ImagenesBlobBitmap.blob_to_bitmap(foto);
+                      byte[] bfoto = ImagenesBlobBitmap.blob_to_bytes(foto);
+                      bm_foto = ImagenesBlobBitmap.decodeSampledBitmapFrombyteArray(bfoto, ConfiguracionDB.ANCHO_IMAGENES_BITMAP, ConfiguracionDB.ALTO_IMAGENES_BITMAP);
                     v = new Viaje(idviaje, origen, destino, precio, bm_foto);
                 }
                 else{

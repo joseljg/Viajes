@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import es.joseljg.viajes.clases.Viaje;
+import es.joseljg.viajes.modelos.ConfiguracionDB;
 
 public class MostrarDetallesViajeActivity extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class MostrarDetallesViajeActivity extends AppCompatActivity {
             byte[] fotob = intent.getByteArrayExtra(EXTRA_OBJETO_IMG_VIAJE);
             if(fotob != null)
             {
-                Bitmap fotov = bytes_to_bitmap(fotob);
+                Bitmap fotov = bytes_to_bitmap(fotob, ConfiguracionDB.ANCHO_IMAGENES_BITMAP, ConfiguracionDB.ALTO_IMAGENES_BITMAP);
                 img_detalles_foto.setImageBitmap(fotov);
             }
             else{

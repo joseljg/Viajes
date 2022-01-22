@@ -1,6 +1,6 @@
 package es.joseljg.viajes.clases;
 
-import static es.joseljg.viajes.utilidades.ImagenesBlobBitmap.bitmap_to_bytes;
+import static es.joseljg.viajes.utilidades.ImagenesBlobBitmap.bitmap_to_bytes_png;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -47,7 +47,7 @@ public class ViajeViewHolder extends RecyclerView.ViewHolder implements View.OnC
         Bitmap fotov = viaje.getFoto();
         Viaje viaje1 = new Viaje(viaje.getIdviaje(), viaje.getOrigen(), viaje.getDestino(), viaje.getPrecio(), null);
         if(fotov != null) {
-            byte[] fotob = bitmap_to_bytes(fotov);
+            byte[] fotob = bitmap_to_bytes_png(fotov);
             intent.putExtra(EXTRA_OBJETO_IMG_VIAJE, fotob);
         }
         // lcAdapter.notifyDataSetChanged();
